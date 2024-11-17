@@ -12,6 +12,23 @@
   padding: 1rem;
 }
 
+.position__button {
+  color: white;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  font-size: 0.5rem;
+  text-align: center;
+}
+
+.position__button:hover {
+  cursor: pointer;
+  background-color: dodgerblue;
+  transition: 0.2s;
+}
+
 .carousel {
   background-color: blue;
   width: 200px;

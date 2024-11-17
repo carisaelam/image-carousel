@@ -8,11 +8,27 @@ const slides = carouselContainer.querySelectorAll('.slide');
 const positionButtons = document.querySelectorAll('.position__button');
 
 let slidePosition = 0;
+const intervalTime = 5000;
+let intervalId;
 
 // Functions
 
+// Start auto
+function startAutoMovement() {
+  intervalId = setInterval(next, intervalTime);
+}
+
+// Stop auto
+function stopAutoMovement() {
+  clearInterval(intervalId);
+}
+
 // Go forward one slide
 function next() {
+  if (slidePosition > slides.length - 2) {
+    slidePosition = -1;
+  }
+
   if (slidePosition <= slides.length - 2) {
     slidePosition++;
 
@@ -41,18 +57,23 @@ function jumpToSlide(position) {
 
 // Event listeners
 nextButton.addEventListener('click', () => {
+  stopAutoMovement();
   next();
 });
 
 backButton.addEventListener('click', () => {
+  stopAutoMovement();
+
   back();
 });
 
 positionButtons.forEach((positionButton) => {
   positionButton.addEventListener('click', (e) => {
+    stopAutoMovement();
     position = e.target.textContent - 1;
-    console.log('position', position);
 
     jumpToSlide(position);
   });
 });
+
+startAutoMovement();
