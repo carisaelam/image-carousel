@@ -1,0 +1,17 @@
+.carousel__container {
+  background-color: yellow;
+}
+
+.carousel {
+  background-color: blue;
+  width: 200px;
+  padding: 1rem;
+  overflow-x: hidden;
+  display: flex;
+}
+
+.slide {
+  background-color: red;
+  padding: 1rem;
+  transform: translateX(calc(0% - 1rem));
+}
